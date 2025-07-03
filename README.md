@@ -46,3 +46,8 @@ Known Issues / Limitations
 	3. Does not yet support voice input or page-level metadata.
 	4. Whisper-based speech-to-text support was explored but removed due to reliability issues.
 
+How to Test
+
+	Use the provided sample.pdf or upload your own.
+	Try asking factual questions from the uploaded content.
+	If the question is unrelated to the content, the bot will return a warning.
