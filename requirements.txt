@@ -1,0 +1,8 @@
+streamlit
+langchain
+pypdf
+sentence-transformers
+pinecone
+transformers
+huggingface_hub
+langchain-community
