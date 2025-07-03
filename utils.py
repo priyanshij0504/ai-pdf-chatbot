@@ -42,18 +42,10 @@ def search_similar_chunks(query, index, k=3):
     query_vector = embeddings.embed_query(query)
     results = index.query(vector=query_vector, top_k=k, include_metadata=True)
 
-    RELEVANCE_THRESHOLD = 0.75  
-
-    filtered_matches = [
-        match for match in results["matches"]
-        if match["score"] >= RELEVANCE_THRESHOLD
-    ]
-
     return [
         Document(page_content=match["metadata"]["text"], metadata={"score": match["score"]})
-        for match in filtered_matches
+        for match in results["matches"]
     ]
-
 
 # Generate answer using FLAN-T5
 def generate_answer(question, docs):

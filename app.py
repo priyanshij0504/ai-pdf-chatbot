@@ -7,14 +7,20 @@ from utils import (
 )
 import os
 from pinecone import Pinecone
+from dotenv import load_dotenv  
+load_dotenv()
 
-# 🔐 Set API keys (put your keys here)
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
-os.environ["PINECONE_API_KEY"] = "pcsk_7EdYGU_SBWsjsJnVyaY5XYvcdt96tBao69aJkTpxtykKZTnfNk8VB5m6GJVPgyAiK5vQwb"
-os.environ["PINECONE_ENVIRONMENT"] = "us-east-1"
+
+HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_ENVIRONMENT = os.getenv("PINECONE_ENVIRONMENT")
+
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+os.environ["PINECONE_API_KEY"] = os.getenv("PINECONE_API_KEY")
+os.environ["PINECONE_ENVIRONMENT"] = os.getenv("PINECONE_ENVIRONMENT")
 
 # Initialize Pinecone
-pc = Pinecone(api_key="pcsk_7EdYGU_SBWsjsJnVyaY5XYvcdt96tBao69aJkTpxtykKZTnfNk8VB5m6GJVPgyAiK5vQwb")
+pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index("langchainpinecone")
 
 # Streamlit UI
