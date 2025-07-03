@@ -3,21 +3,16 @@ from utils import (
     process_pdf,
     store_embeddings_in_pinecone,
     search_similar_chunks,
-    generate_answer
+    generate_answer,
 )
 import os
 from pinecone import Pinecone
 from dotenv import load_dotenv  
 load_dotenv()
 
-
 HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_ENVIRONMENT = os.getenv("PINECONE_ENVIRONMENT")
-
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
-os.environ["PINECONE_API_KEY"] = os.getenv("PINECONE_API_KEY")
-os.environ["PINECONE_ENVIRONMENT"] = os.getenv("PINECONE_ENVIRONMENT")
 
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
